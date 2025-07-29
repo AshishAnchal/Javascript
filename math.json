@@ -1,0 +1,92 @@
+[
+ {
+   "question_no":"1",
+   "question":"What is 5+4-1?",
+   "a":"10",
+   "b":"2",
+   "c":"8",
+   "d":"9",
+   "correct_ans":"c" 
+ },
+ {
+    "question_no":"2",
+   "question":"What is 9*2?",
+   "a":"19",
+   "b":"21",
+   "c":"82",
+   "d":"18",
+   "correct_ans":"d" 
+ },
+ {
+    "question_no":"3",
+   "question":"What is 12-0?",
+   "a":"12",
+   "b":"2",
+   "c":"8",
+   "d":"18",
+   "correct_ans":"a" 
+ },
+ {
+    "question_no":"4",
+   "question":"What is 8/2?",
+   "a":"1",
+   "b":"11",
+   "c":"4",
+   "d":"8",
+   "correct_ans":"c" 
+ },
+ {
+    "question_no":"5",
+   "question":"What is 88*1?",
+   "a":"14",
+   "b":"88",
+   "c":"99",
+   "d":"22",
+   "correct_ans":"b" 
+ },
+ {
+    "question_no":"6",
+   "question":"What is the next prime number after 5?",
+   "a":"11",
+   "b":"21",
+   "c":"7",
+   "d":"9",
+   "correct_ans":"c" 
+ },   
+ {
+    "question_no":"7",
+   "question":"What is the value of 2 to the power of 5?",
+   "a":"32",
+   "b":"21",
+   "c":"43",
+   "d":"54",
+   "correct_ans":"a" 
+ },
+ {
+    "question_no":"8",
+   "question":"What is the sum of the angles in a triangle?",
+   "a":"190",
+   "b":"210",
+   "c":"820",
+   "d":"180",
+   "correct_ans":"d" 
+ },
+ {
+    "question_no":"9",
+   "question":"110 divided by 10 is",
+   "a":"11",
+   "b":"12",
+   "c":"81",
+   "d":"23",
+   "correct_ans":"a" 
+ },
+ {
+    "question_no":"10",
+   "question":"Find the sum of 130 + 125 + 191?",
+   "a":"423",
+   "b":"143",
+   "c":"446",
+   "d":"444",
+   "correct_ans":"c" 
+ }
+]
