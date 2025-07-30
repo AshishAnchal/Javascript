@@ -7,7 +7,6 @@
     <title>List</title>
     <script>
         function fetchlist() {
-            const list = document.getElementById("listid").value;
             const url = 'https://ashishanchal.github.io/Javascript/quizlist.json';
             console.log(url);
             fetch(url)
@@ -18,7 +17,9 @@
                     return Response.json();
                 })
                 .then(data => {
-                    alert(data[0]["QUIZ01"]);
+                    // alert(data[0]["QUIZ01"]);
+                    console.log(data.length);
+                    console.log(JSON.stringify(data));
                     const listdata = data;
                     if (listdata) {
                         displaylist(listdata)
@@ -37,9 +38,11 @@
         function displaylist(data) {
             let completeoutput = "<table border='1'>";
             const n = data.length;
-            for (i = 0; i <= -1; i++) {
-                let list = data[i]["Quizname"];
-                let cr = `<tr><td><button onclick="window.location.href=${list}">${list}</button></td> <td><a href="${list}">${list}</a></td> </tr>`;
+            for (i = 0; i < data.length; i++) {
+                let Quizname = data[i]["Quizname"];
+                let Type = data[i]["Type"];
+                let cr = `<tr><td>${Quizname}</td><td>${Type}</td></tr>`;
+
                 completeoutput += cr;
             }
             completeoutput += "</table>";
