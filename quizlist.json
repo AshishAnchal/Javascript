@@ -1,6 +1,11 @@
 [
     {
-        "QUIZ01":"Simple"
+        "Quizname":"science",
+        "Type":"Simple"
         
+    },
+    {
+        "Quizname":"Computer",
+        "Type":"Hard"
     }
 ]

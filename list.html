@@ -4,33 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz</title>
+    <title>List</title>
     <script>
-        function fetchsubject() {
-
+        function fetchlist() {
             const list = document.getElementById("listid").value;
-            const url = `https://ashishanchal.github.io/Javascript/quizlist.json`;
+            const url = 'https://ashishanchal.github.io/Javascript/quizlist.json';
             console.log(url);
-
             fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+                .then(Response => {
+                    if (!Response.ok) {
+                        throw new Error(`${Response.status}-${Response.statusText}`);
                     }
-                    return response.json();
+                    return Response.json();
                 })
                 .then(data => {
-                    const listData = data;
-                    if (listData) {
-                        displaylist(listData);
+                    alert(data[0]["QUIZ01"]);
+                    const listdata = data;
+                    if (listdata) {
+                        displaylist(listdata)
                     } else {
-                        displayError("List not found.");
+                        displayError("List not found");
+
                     }
                 })
                 .catch(error => {
-
                     displayError(error.message);
-                });
+                })
         }
         function displayError(data) {
             console.log(data);
@@ -38,18 +37,15 @@
         function displaylist(data) {
             let completeoutput = "<table border='1'>";
             const n = data.length;
-            for (let i = 0; i <= n - 1; i++) {
-                let list = data[i]["Quiz01"];
-                
-                let cr = `<tr> <td><button onclick="window.location.href='${list}'">${list}</button></td> <td><a href="${list}</a></td> </tr>`;
+            for (i = 0; i <= -1; i++) {
+                let list = data[i]["Quizname"];
+                let cr = `<tr><td><button onclick="window.location.href=${list}">${list}</button></td> <td><a href="${list}">${list}</a></td> </tr>`;
                 completeoutput += cr;
             }
             completeoutput += "</table>";
-            const output = document.getElementById("output");
+            const output = document.getElementById('output');
             output.innerHTML = completeoutput;
-
         }
-
     </script>
 </head>
 
@@ -57,8 +53,7 @@
     <h1>List</h1>
     <div id="output"></div>
     <div>
-        
-        <button id="listid" onclick="fetchsubject()">Go to List</button>
+        <button id="listid" onclick="fetchlist()">Check</button>
     </div>
 </body>
 
