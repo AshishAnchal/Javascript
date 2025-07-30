@@ -9,15 +9,53 @@
         function fetchsubject() {
 
             const subject = document.getElementById("subid").value;
-            const url = ``;
+            const url = `https://ashishanchal.github.io/Javascript/subject.json`;
             console.log(url);
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const subjectData = data;
+                    if (subjectData) {
+                        displaysubject(subjectData);
+                    } else {
+                        displayError("Subject ID not found.");
+                    }
+                })
+                .catch(error => {
+
+                    displayError(error.message);
+                });
         }
+        function displayError(data) {
+            console.log(data);
+        }
+        function displaysubject(data) {
+            let completeoutput = "<table border='1'>";
+            const n = data.length;
+            for (let i = 0; i <= n - 1; i++) {
+                let subject = data[i]["subject_name"];
+                let url = data[i]["url"];
+                let cr = `<tr><td><button>${subject}<${url}/button></td><td><a href='"${url}"'>${subject}</a></td></tr>`;
+                completeoutput += cr;
+            }
+            completeoutput += "</table>";
+            const output = document.getElementById("output");
+            output.innerHTML = completeoutput;
+
+        }
+
     </script>
 </head>
 
 <body>
- <h1>Quizz</h1>
-
+    <h1>Quizz</h1>
+    <div id="output"></div>
     <div>
         <input type="text" id="subid">
         <button onclick="fetchsubject()">Go to Quizz</button>
