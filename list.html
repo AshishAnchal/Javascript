@@ -8,22 +8,57 @@
     <script>
         function fetchsubject() {
 
-            const subject = document.getElementById("subid").value;
-            const url = ``;
+            const subject = document.getElementById("listid").value;
+            const url = `https://ashishanchal.github.io/Javascript/quizlist.json`;
             console.log(url);
 
-           
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const listData = data;
+                    if (listData) {
+                        displaylist(listData);
+                    } else {
+                        displayError("List not found.");
+                    }
+                })
+                .catch(error => {
+
+                    displayError(error.message);
+                });
+        }
+        function displayError(data) {
+            console.log(data);
+        }
+        function displaylist(data) {
+            let completeoutput = "<table border='1'>";
+            const n = data.length;
+            for (let i = 0; i <= n - 1; i++) {
+                let list = data[i]["Quiz01"];
+                
+                let cr = `<tr> <td><button onclick="window.location">${subject}</button></td> <td><a href="${subject}</a></td> </tr>`;
+                completeoutput += cr;
+            }
+            completeoutput += "</table>";
+            const output = document.getElementById("output");
+            output.innerHTML = completeoutput;
+
         }
 
     </script>
 </head>
 
 <body>
-    <h1>Quizz</h1>
+    <h1>List</h1>
     <div id="output"></div>
     <div>
         
-        <button id="subid" onclick="fetchsubject()">Go to list</button>
+        <button id="listid" onclick="fetchsubject()">Go to List</button>
     </div>
 </body>
 
