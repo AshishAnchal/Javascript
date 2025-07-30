@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <script>
-        function fetchques(){
-            const url=""
+        function fetchques() {
+            const url = "https://ashishanchal.github.io/Javascript/science.json";
+            fetch(url)
+                .then(Response => {
+                    if (!Response.ok) {
+                        throw new Error(`${Response.status}-${Response.statusText}`);
+                    }
+                    return Response.json();
+                })
+                .then(data => {
+                    console.log(data.length);
+                    const quesdata = data;
+                    if (quesdata) {
+                        displayques(quesdata)
+                    } else {
+                        diplayerror("Question not found");
+                    }
+                })
+                .catch(error => {
+                    displayerror(error.message);
+                })
+            function displayerror(data) {
+                console.log(data);
+            }
+            function displayques(data) {
+                let completeoutput = "<table border='1'>";
+                for (i = 0; i < data.length; i++) {
+                    let question_no = data[i]["question_no"];
+                    let question = data[i]["question"];
+                    let a = data[i]["a"];
+                    let b = data[i]["b"];
+                    let c = data[i]["c"];
+                    let d = data[i]["d"];
+                    let cr = `<tr><td>${question_no}</tr></td>${question}</tr></td>${a}</tr></td>${b}</tr></td>${c}</tr></td>${d}`;
+                    completeoutput += cr;
+                }
+                completeoutput += "</table>";
+                const output = document.getElementById(output);
+                output.innerHTML = completeoutput;
+            }
         }
     </script>
 </head>
+
 <body>
     <h1>Science</h1>
     <button id="qsci" onclick="fetchques()">Start</button>
 </body>
+
 </html>
