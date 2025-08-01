@@ -19,7 +19,7 @@
         id="lblb">B</label><input name="option" id="rdb" type="radio"></br>
     <label for="rdc" id="lblc">C</label><input name="option" id="rdc" type="radio"><label for="rdd"
         id="lbld">D</label><input name="option" id="rdd" type="radio"></br>
-    <input name="option" id="rde" type="radio" style="display: none;">
+    <input name="option" id="rde" checked type="radio" style="display: none;">
     <div id="neww"></div><button id="nextq" onclick="fetchnew()">Next</button><button id="check"
         onclick="checkans()">CheckAns</button>
     <div id="status"></div>
@@ -88,6 +88,8 @@
                 ques_no++;
                 return;
             }
+           let selectedoption= checkans();
+           alert(selectedoption);
             showques(ques_no);
 
             if (ques_no < 10) {
@@ -110,8 +112,16 @@
             lbld.innerHTML = `D:${questions[qno].d}`;
         }
         function checkans() {
-
-            console.log("yeeehh");
+            if (rda.checked)
+                return "a";
+            if (rdb.checked)
+                return "b";
+            if (rdc.checked)
+                return "c";
+            if (rdd.checked)
+                return "d";
+            console.log("");
+            return "e";
         }
     </script>
 
