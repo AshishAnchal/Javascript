@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start</title>
+
+</head>
+
+<body>
+    <h1>Science Quiz</h1>
+    <div id="output"></div>
+    <button id="qsci" onclick="fetchques()">Start</button>
+    </br>
+    <p id="pquestionno">QuestionNo. </p>
+    <p id="pquestion">Question</p>
+    <label for="rda" id="lbla">A</label><input name="option" id="rda" type="radio"><label for="rdb"
+        id="lblb">B</label><input name="option" id="rdb" type="radio"></br>
+    <label for="rdc" id="lblc">C</label><input name="option" id="rdc" type="radio"><label for="rdd"
+        id="lbld">D</label><input name="option" id="rdd" type="radio"></br>
+    <input name="option" id="rde" type="radio" style="display: none;">
+    <div id="neww"></div><button id="nextq" onclick="fetchnew()">Next</button><button id="check"
+        onclick="checkans()">CheckAns</button>
+    <div id="status"></div>
+    <script>
+        const statusdiv = document.getElementById("status");
+        const lbla = document.getElementById("lbla");
+        const lblb = document.getElementById('lblb');
+        const lblc = document.getElementById('lblc');
+        const lbld = document.getElementById('lbld');
+        const rda = document.getElementById('rda');
+        const rdb = document.getElementById('rdb');
+        const rdc = document.getElementById('rdc');
+        const rdd = document.getElementById('rdd');
+        const rde = document.getElementById('rde');
+        const pquestion = document.getElementById('pquestion');
+        const pquestionno = document.getElementById('pquestionno');
+
+
+    </script>
+    <script>
+        let ques_no = 1;
+        function fetchques() {
+            const url = "https://ashishanchal.github.io/Javascript/science.json";
+            fetch(url)
+                .then(Response => {
+                    if (!Response.ok) {
+                        throw new Error(`${Response.status}-${Response.statusText}`);
+                        statusdiv.innerHTML = "Error";
+                    }
+                    return Response.json();
+                })
+                .then(data => {
+                    // console.log(data.length);
+                    const quesdata = data;
+                    if (quesdata) {
+                        statusdiv.innerHTML = "downloaded succesfully";
+                        localStorage.setItem('first', JSON.stringify(data));
+                        console.log(quesdata);
+                    } else {
+                        displayerror("Question not found");
+                    }
+                })
+                .catch(error => {
+                    displayerror(error.message);
+                })
+            function displayerror(data) {
+                console.log(data);
+            }
+            function displayques() {
+                localStorage.setItem('first', data);
+                document.getElementById('first').value = localStorage.getItem('first');
+            }
+        }
+
+        let questions = 0;
+        function fetchnew() {
+            if (rde.checked) {
+                alert("please pick an option");
+                return;
+            }
+            if (ques_no == 1) {
+                console.log("ye hoe quest no. 1");
+                questions = localStorage.getItem("first");
+                questions = JSON.parse(questions);
+                showques(ques_no);
+                ques_no++;
+                return;
+            }
+            showques(ques_no);
+
+            if (ques_no < 10) {
+                // const neww = document.getElementById("neww");
+                // neww.innerHTML = `QuestionNo. ${ques_no}`;
+                ques_no++;
+            }
+        }
+        function showques(qno) {
+            rde.checked = true;
+            pquestionno.innerHTML = `QuestionNo. ${qno}`;
+            qno = qno - 1;
+            //  let   questions=localStorage.getItem("first");
+            //alert(questions[0]);
+            //alert(JSON.stringify(questions));
+            pquestion.innerHTML = `Ques-${questions[qno].question}`;
+            lbla.innerHTML = `A: ${questions[qno].a}`;
+            lblb.innerHTML = `B:${questions[qno].b}`;
+            lblc.innerHTML = `C:${questions[qno].c}`;
+            lbld.innerHTML = `D:${questions[qno].d}`;
+        }
+        function checkans() {
+
+            console.log("yeeehh");
+        }
+    </script>
+
+
+
+</body>
+
+</html>

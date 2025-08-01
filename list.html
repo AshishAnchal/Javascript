@@ -38,7 +38,7 @@
         function displaylist(data) {
             let completeoutput = "<table border='1'>";
             const n = data.length;
-            for (i = 0; i < data.length; i++) {
+            for (i = 0; i < n-1; i++) {
                 let Quizname = data[i]["Quizname"];
                 let Type = data[i]["Type"];
                 let cr = `<tr><td>${Quizname}</td><td>${Type}</td></tr>`;

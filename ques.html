@@ -21,7 +21,7 @@
                     if (quesdata) {
                         displayques(quesdata)
                     } else {
-                        diplayerror("Question not found");
+                        displayerror("Question not found");
                     }
                 })
                 .catch(error => {
@@ -39,20 +39,43 @@
                     let b = data[i]["b"];
                     let c = data[i]["c"];
                     let d = data[i]["d"];
-                    let cr = `<tr><td>${question_no}</tr></td>${question}</tr></td>${a}</tr></td>${b}</tr></td>${c}</tr></td>${d}`;
+                    let cr = `
+                         <tr><td><strong>${question_no}. ${question}</strong></td></tr>
+                         <tr><td><input type="radio" name="option" value="a">a</td><td>${a}</td></tr>
+                         <tr><td><input type="radio" name="option" value="b">b</td><td>${b}</td></tr>
+                         <tr><td><input type="radio" name="option" value="c">c</td><td>${c}</td></tr>
+                         <tr><td><input type="radio" name="option" value="d">d</td><td>${d}</td></tr>
+                         <tr><td><hr></td></tr>
+                         `;
+
                     completeoutput += cr;
                 }
                 completeoutput += "</table>";
-                const output = document.getElementById(output);
+                const output = document.getElementById("output");
                 output.innerHTML = completeoutput;
+            }
+        }
+         let i = 1;
+         
+        function fetchnew() {
+            console.log(i);
+            if (i <= 10) {
+                const neww=document.getElementById("neww");
+                neww.innerHTML="";
+                 neww.innerHTML += `${i}`;
+                i++;
             }
         }
     </script>
 </head>
 
 <body>
-    <h1>Science</h1>
+    <h1>Science Quiz</h1>
+    <div id="output"></div>
     <button id="qsci" onclick="fetchques()">Start</button>
+</br>
+<div id="neww"></div>
+  <button id="nextq" onclick="fetchnew()">Next</button>
 </body>
 
 </html>

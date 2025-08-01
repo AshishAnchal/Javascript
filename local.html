@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local</title>
+</head>
+<script>
+    function f() {
+        const x = document.getElementById("txt").value;
+        localStorage.setItem("xyz", x);
+    }
+    function r(){
+        localStorage.removeItem('xyz');
+    }
+</script>
+
+<body>
+    <textarea id="txt" onchange="f()" onkeyup="f()"></textarea>
+    <script>
+
+
+        document.getElementById("txt").value = localStorage.getItem("xyz");
+    </script>
+    <button id="del" onclick="r()">remove</button>
+</body>
+
+</html>
