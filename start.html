@@ -7,21 +7,69 @@
     <title>Start</title>
 
 </head>
+<!-- 
+questions[3].question_no
 
+questions[3].question
+
+questions[3].a
+questions[3].b
+questions[3].c
+questions[3].d
+questions[3].correct_ans
+
+qno=3
+questions[qno].question_no
+
+questions[qno].question
+
+questions[qno].a
+questions[qno].b
+questions[qno].c
+questions[qno].d
+questions[qno].correct_ans
+
+
+
+
+1. Download questions and save to localstorage
+2. Show the test screen
+3. Load question 1
+
+4. get selected option by quiz user . if Selected option is e. Show error message and don't go forward
+
+5. get correct_ans
+6. compare selected option with correct_ans
+7. add to score if selected option == correct_ans
+8. Load next question if test is not over.
+
+Functions 
+1. downloadquestions. Download questions json and save to localstorage. Hide the button and show the start quiz button start quiz
+2. startquiz - show the first question and all the option and also a next button is shown for 
+next question.
+3. Next - This check the ans from selescted to userchoosen option and show the next question.
+after the all question it hide the next button and show the result and quiz finished.
+
+-->
 <body>
     <h1>Science Quiz</h1>
     <div id="output"></div>
-    <button id="qsci" onclick="fetchques()">Start</button>
-    </br>
-    <p id="pquestionno">QuestionNo. </p>
-    <p id="pquestion">Question</p>
-    <label for="rda" id="lbla">A</label><input name="option" id="rda" type="radio"><label for="rdb"
-        id="lblb">B</label><input name="option" id="rdb" type="radio"></br>
-    <label for="rdc" id="lblc">C</label><input name="option" id="rdc" type="radio"><label for="rdd"
-        id="lbld">D</label><input name="option" id="rdd" type="radio"></br>
-    <input name="option" id="rde" checked type="radio" style="display: none;">
-    <div id="neww"></div><button id="nextq" onclick="fetchnew()">Next</button><button id="check"
-        onclick="checkans()">CheckAns</button>
+    <div id="getquizdiv">
+        <button id="qsci" onclick="fetchques()">Download</button>
+        </br>
+        <button onclick="startquiz()" id="">Start Quiz</button>
+    </div>
+    <div id="questiondiv" style="display:none;">
+        <p id="pquestionno">QuestionNo. </p>
+        <p id="pquestion">Question</p>
+        <label for="rda" id="lbla">A</label><input name="option" id="rda" type="radio"><label for="rdb"
+            id="lblb">B</label><input name="option" id="rdb" type="radio"></br>
+        <label for="rdc" id="lblc">C</label><input name="option" id="rdc" type="radio"><label for="rdd"
+            id="lbld">D</label><input name="option" id="rdd" type="radio"></br>
+        <input name="option" id="rde" checked type="radio" style="display: none;">
+        <div id="neww"></div><button id="nextq" onclick="fetchnew()">Next</button><button id="check"
+            onclick="checkans()">CheckAns</button>
+    </div>
     <div id="status"></div>
     <script>
         const statusdiv = document.getElementById("status");
@@ -36,7 +84,8 @@
         const rde = document.getElementById('rde');
         const pquestion = document.getElementById('pquestion');
         const pquestionno = document.getElementById('pquestionno');
-
+        const questiondiv = document.getElementById("questiondiv");
+        const status = document.getElementById("status");
 
     </script>
     <script>
@@ -75,11 +124,17 @@
         }
 
         let questions = 0;
-        function fetchnew() {
-            if (rde.checked) {
-                alert("please pick an option");
-                return;
-            }
+        function startquiz() {
+            questiondiv.style.display = "block";
+            getquizdiv.style.display = "none";
+            status.style.display = "none";
+            fetchnew(1);
+        }
+        function fetchnew(qno) {
+            const selectedoption = checkans();
+            alert(selectedoption);
+            console.log(selectedoption);
+            const correct = questions[qno - 1].correct_ans;
             if (ques_no == 1) {
                 console.log("ye hoe quest no. 1");
                 questions = localStorage.getItem("first");
@@ -88,14 +143,13 @@
                 ques_no++;
                 return;
             }
-           let selectedoption= checkans();
-           alert(selectedoption);
-            showques(ques_no);
 
+            alert(selectedoption + "," + correct);
             if (ques_no < 10) {
                 // const neww = document.getElementById("neww");
                 // neww.innerHTML = `QuestionNo. ${ques_no}`;
                 ques_no++;
+                showques(ques_no);
             }
         }
         function showques(qno) {
@@ -111,6 +165,7 @@
             lblc.innerHTML = `C:${questions[qno].c}`;
             lbld.innerHTML = `D:${questions[qno].d}`;
         }
+
         function checkans() {
             if (rda.checked)
                 return "a";
@@ -124,8 +179,6 @@
             return "e";
         }
     </script>
-
-
 
 </body>
 
