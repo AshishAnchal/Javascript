@@ -15,7 +15,7 @@
     }
 
     .pscore {
-      display: none;
+      display: block;
     }
   </style>
 </head>
@@ -34,7 +34,7 @@
     <label><input id="rdd" name="option" type="radio"> <span id="lbld"></span></label><br>
     <input type="radio" style="display: none" id="rde" name="option">
     <button onclick="nextQuestion()">Next</button>
-    <p id="pscore" class="pscore"></p>
+    <p id="pscore" class="pscore">Score</p>
   </div>
 
   <script>
@@ -157,26 +157,31 @@
 
     function nextQuestion() {
       const selected = getSelectedOption();
+     // alert(selected);
       if (selected === "e") {
         alert("Please select an option.");
         return;
-      }
 
+      }
 
       const current = questions[quesno];
       console.log(current);
       if (selected === current.correct_ans) {
-        console.log(selected);
+        // alert("Correct!");
         score++;
+        // alert(score);
+        pscore.textContent = `Score: ${score}`;
+      } else {
+        alert("Wrong! Correct answer");
       }
 
       quesno++;
 
-      if (quesno >= totalques) {
+      if (quesno == totalques) {
         alert("Quiz Completed");
         quizdiv.classList.add("hidequizdiv");
         pscore.style.display = "block";
-        pscore.innerHTML = pscore;
+        pscore.innerHTML = score;
         return;
       }
       showQuestion();
