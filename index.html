@@ -6,32 +6,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QUIZ</title>
   <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle, #0a1a3d 0%, #000 100%);
+      margin: 0;
+      padding: 20px;
+      color: #f1c40f;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 20px;
+      color: #f1c40f;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    button {
+      background-color: #1abc9c;
+      color: white;
+      padding: 12px 25px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #16a085;
+      transform: scale(1.05);
+    }
+
+    #quizdiv {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      margin: 30px auto;
+      box-shadow: 0 0 25px rgba(241, 196, 15, 0.3);
+    }
+
+    #quesno {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #f39c12;
+    }
+
+    #lblquestion {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin: 12px auto;
+      padding: 12px 20px;
+      width: 90%;
+      max-width: 500px;
+      border: 2px solid #f1c40f;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-align: left;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    label:hover {
+      background-color: rgba(241, 196, 15, 0.2);
+      transform: scale(1.02);
+    }
+
+    input[type="radio"] {
+      transform: scale(1.4);
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
     .hidequizdiv {
       display: none;
     }
 
-    .qstart {
+    .qget {
       display: none;
     }
 
     .pscore {
-      display: block;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2ecc71;
+      margin-top: 30px;
+    }
+
+    .option-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .option-row label {
+      flex: 1 1 45%;
+      max-width: 280px;
     }
   </style>
+
 </head>
 
 <body>
   <h1>Science Quiz</h1>
-  <button id="qstart" onclick="startQuiz()">Start</button>
-  <button id="qget" onclick="fetchques()">Get</button>
+  <button id="qstart" style="display: none;" onclick="startQuiz()">Start</button>
+  <button id="qget" onclick="fetchques()">Start</button>
   <div id="quizdiv" class="hidequizdiv">
     <p id="quesno"></p>
     <p id="lblquestion"></p>
 
-    <label><input id="rda" name="option" type="radio"> <span id="lbla"></span></label>
-    <label><input id="rdb" name="option" type="radio"> <span id="lblb"></span></label><br>
-    <label><input id="rdc" name="option" type="radio"> <span id="lblc"></span></label>
-    <label><input id="rdd" name="option" type="radio"> <span id="lbld"></span></label><br>
+    <div class="option-row">
+      <label><input id="rda" name="option" type="radio"> <span id="lbla"></span></label>
+      <label><input id="rdb" name="option" type="radio"> <span id="lblb"></span></label>
+    </div>
+    <div class="option-row">
+      <label><input id="rdc" name="option" type="radio"> <span id="lblc"></span></label>
+      <label><input id="rdd" name="option" type="radio"> <span id="lbld"></span></label>
+    </div>
+
     <input type="radio" style="display: none" id="rde" name="option">
     <button onclick="nextQuestion()">Submit</button>
     <p id="pscore" class="pscore">Score</p>
@@ -66,104 +172,9 @@
       function displayerror(data) {
         console.log(data);
       }
-      function displayques() {
-
-      }
+      startQuiz();
     }
 
-    /**
-      const questions = JSON.parse(`[
-      {
-          "question_no":"1",
-          "question":"What is the process by which plants make their food?",
-          "a":"Photosynthesis",
-          "b":"Sunseeding",
-          "c":"Chlorophyll",
-          "d":"Planting",
-          "correct_ans":"a"
-      },
-      {
-          "question_no":"2",
-          "question":" Which planet is known as the Red Planet?",
-          "a":"Earth",
-          "b":"Jupiter",
-          "c":"Mars",
-          "d":"Venus",
-          "correct_ans":"c"
-      },
-      {
-          "question_no":"3",
-          "question":"What is the unit of electrical resistance?",
-          "a":"Tesla",
-          "b":"Ampere",
-          "c":"Volt",
-          "d":"Ohm",
-          "correct_ans":"d"
-      },
-      {
-          "question_no":"4",
-          "question":"What is the most abundant gas in Earth's atmosphere?",
-          "a":"Nitrogen",
-          "b":"Neon",
-          "c":"Oxygen",
-          "d":"Carbon",
-          "correct_ans":"a"
-      },
-      {
-          "question_no":"5",
-          "question":"What is the process of water turning into vapor called?",
-          "a":"Condensation",
-          "b":"Evaporation",
-          "c":"Melting",
-          "d":"Hardening",
-          "correct_ans":"b"
-      },
-      {
-          "question_no":"6",
-          "question":"What is the largest organ in the human body?",
-          "a":"Eyes",
-          "b":"Ears",
-          "c":"Skin",
-          "d":"Nose",
-          "correct_ans":"c"
-      },
-      {
-          "question_no":"7",
-          "question":"What connects muscles to bones?",
-          "a":"Nerves",
-          "b":"MuscleTissue",
-          "c":"Colons",
-          "d":"Tendons",
-          "correct_ans":"d"
-      },
-      {
-          "question_no":"8",
-          "question":"What is the chemical name for rust?",
-          "a":"Iron Rust",
-          "b":"Iron Oxide",
-          "c":"Corrosion",
-          "d":"Dusting",
-          "correct_ans":"b"
-      },
-      {
-          "question_no":"9",
-          "question":"How many planets are in our solar system?",
-          "a":"9",
-          "b":"3",
-          "c":"8",
-          "d":"7",
-          "correct_ans":"c"
-      },
-      {
-          "question_no":"10",
-          "question":"What is the name of the tool used to make distant objects appear closer?",
-          "a":"Telescope",
-          "b":"Periscope",
-          "c":"Magnifier",
-          "d":"Satelite",
-          "correct_ans":"a"
-      }
-  ]`);*/
     let quesno = 0;
     let score = 0;
 
@@ -187,8 +198,9 @@
     function startQuiz() {
       qstart.style.display = "none";
       quizdiv.classList.remove("hidequizdiv");
+      qget.classList.add("qget");
       questions = JSON.parse(localStorage.getItem("questions"));
-      totalques=questions.length;
+      totalques = questions.length;
       showQuestion();
     }
 
@@ -209,7 +221,7 @@
         // alert(score);
         pscore.textContent = `Score: ${score}`;
       } else {
-        alert("Wrong! Correct answer");
+        // alert("Wrong!");
       }
 
       quesno++;
@@ -217,8 +229,10 @@
       if (quesno == totalques) {
         alert("Quiz Completed");
         quizdiv.classList.add("hidequizdiv");
-        pscore.style.display = "block";
-        pscore.innerHTML = score;
+        alert(pscore);
+        pscore.classList.add("pscore");
+        pscore.textContent = `Final Score: ${score}/${totalques}`;
+
         return;
       }
       showQuestion();
