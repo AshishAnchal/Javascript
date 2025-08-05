@@ -103,6 +103,7 @@
       font-weight: bold;
       color: #2ecc71;
       margin-top: 30px;
+      display: none;
     }
 
     .option-row {
@@ -140,9 +141,9 @@
 
     <input type="radio" style="display: none" id="rde" name="option">
     <button onclick="nextQuestion()">Submit</button>
-    <p id="pscore" class="pscore">Score</p>
+    
   </div>
-
+<p id="pscore" class="pscore">Score</p>
   <script>
     let questions = 0;
     function fetchques() {
@@ -229,10 +230,8 @@
       if (quesno == totalques) {
         alert("Quiz Completed");
         quizdiv.classList.add("hidequizdiv");
-        //alert(pscore);
-        pscore.classList.add("pscore");
-        pscore.textContent = `Final Score: ${score}/${totalques}`;
-
+        pscore.classList.remove("pscore"); 
+        pscore.textContent = `Score: ${score}/${totalques}`;
         return;
       }
       showQuestion();
