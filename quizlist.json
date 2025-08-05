@@ -5,6 +5,10 @@
         
     },
     {
+        "Quizname":"Mathematics",
+        "Type":"Hard"
+    },
+    {
         "Quizname":"Computer",
         "Type":"Hard"
     }
