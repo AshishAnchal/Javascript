@@ -1,15 +1,15 @@
 [
     {
-        "Quizname":"science",
+        "subject":"science",
         "Type":"Simple"
         
     },
     {
-        "Quizname":"Mathematics",
+        "subject":"Mathematics",
         "Type":"Hard"
     },
     {
-        "Quizname":"Computer",
+        "subject":"Computer",
         "Type":"Hard"
     }
 ]

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
     <script>
+        
         function fetchlist() {
             const url = 'https://ashishanchal.github.io/Javascript/quizlist.json';
             console.log(url);
@@ -26,6 +27,7 @@
                     } else {
                         displayError("List not found");
 
+
                     }
                 })
                 .catch(error => {
@@ -38,10 +40,10 @@
         function displaylist(data) {
             let completeoutput = "<table border='1'>";
             const n = data.length;
-            for (i = 0; i < n-1; i++) {
-                let Quizname = data[i]["Quizname"];
+            for (i = 0; i <= n - 1; i++) {
+                let subject = data[i]["subject"];
                 let Type = data[i]["Type"];
-                let cr = `<tr><td>${Quizname}</td><td>${Type}</td></tr>`;
+                let cr = `<tr><td>${subject}</td><td>${Type}</td></tr>`;
 
                 completeoutput += cr;
             }
