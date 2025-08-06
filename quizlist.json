@@ -1,15 +1,18 @@
 [
     {
         "subject":"science",
-        "Type":"Simple"
+        "type":"Simple",
+        "url": "hfhjfhf.json"
         
     },
     {
         "subject":"Mathematics",
-        "Type":"Hard"
+        "type":"Hard",
+        "url":"kkkkk.json"
     },
     {
         "subject":"Computer",
-        "Type":"Hard"
+        "type":"Hard",
+        "url":"tttt.json"
     }
 ]
