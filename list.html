@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
     <script>
-        let data = 0;
+        let q = 0;
         function fetchlist() {
             const url = 'https://ashishanchal.github.io/Javascript/quizlist.json';
             console.log(url);
@@ -19,13 +19,37 @@
                 })
                 .then(data => {
                     console.log(data.length);
-                    console.log(JSON.stringify(data));
-
+                    //console.log(JSON.stringify(data));
+                    const q = data;
+                    if (q) {
+                        localStorage.setItem('q', JSON.stringify(data));
+                        console.log(q);
+                    }
                 })
                 .catch(error => {
                     displayError(error.message);
                 })
+
         }
+        function startlist() {
+            const stored = localStorage.getItem("q");
+            if (stored) {
+                q = JSON.parse(stored);
+                const n = Number(q.length);
+                let output = "<table border='2'>\n";
+                for (let i = 0; i <= n - 1; i++) {
+                    let currentrow = `<tr><td>${q[i].subject}</td><td>${q[i].type}</td><td><button onclick="getQuizzesForSubject('${q[i].url}')")>${q[i].subject} Quizzes</button></td></tr>\n`;
+                    output += currentrow;
+                }
+                output += "</table>";
+                document.getElementById("dquiz").innerHTML = output;
+            }
+
+        }
+function getQuizzesForSubject(quizzesurl){
+alert(quizzesurl);
+}
+       
 
     </script>
 </head>
@@ -34,8 +58,14 @@
     <h1>List</h1>
     <div id="output"></div>
     <div>
-        <button id="listid" onclick="fetchlist()">Check</button>
+        <button onclick="startlist()">get</button>
     </div>
+    <div id="dquiz"></div>
+    
+    <script>
+      
+        const dquiz = document.getElementById("dquiz");
+    </script>
 </body>
 
 </html>
