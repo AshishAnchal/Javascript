@@ -32,6 +32,7 @@
 
         }
         function startlist() {
+            fetchlist();
             const stored = localStorage.getItem("q");
             if (stored) {
                 q = JSON.parse(stored);
@@ -60,8 +61,9 @@ alert(quizzesurl);
     <div>
         <button onclick="startlist()">get</button>
     </div>
+    <center>
     <div id="dquiz"></div>
-    
+    </center>
     <script>
       
         const dquiz = document.getElementById("dquiz");

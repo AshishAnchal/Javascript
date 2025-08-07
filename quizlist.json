@@ -12,9 +12,5 @@
         "subject":"Computer",
         "url":"tttt.json"
     }
-    ,
-    {
-        "subject":"Biology",
-        "url":"bio.json"
-    }
+
 ]

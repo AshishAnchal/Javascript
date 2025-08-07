@@ -1,0 +1,14 @@
+[
+    {
+        "sub":"Algebra",
+        "url":"all.json"
+    },
+    {
+        "sub":"Polynomial",
+        "url":"pp.json"
+    },
+    {
+        "sub":"Stats",
+        "url":"a.json"
+    }
+]

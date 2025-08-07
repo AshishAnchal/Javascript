@@ -1,0 +1,14 @@
+[
+    {
+        "sub": "Physics",
+        "url": "ppp.json"
+    },
+    {
+        "sub": "Chemistry",
+        "url": "ccc.json"
+    },
+    {
+        "sub": "Biology",
+        "url": "bbb.json"
+    }
+]
