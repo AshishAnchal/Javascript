@@ -38,7 +38,7 @@
                 const n = Number(q.length);
                 let output = "<table border='2'>\n";
                 for (let i = 0; i <= n - 1; i++) {
-                    let currentrow = `<tr><td>${q[i].subject}</td><td>${q[i].type}</td><td><button onclick="getQuizzesForSubject('${q[i].url}')")>${q[i].subject} Quizzes</button></td></tr>\n`;
+                    let currentrow = `<tr><td>${q[i].subject}<td><button onclick="getQuizzesForSubject('${q[i].url}')")>${q[i].subject} Quizzes</button></td></tr>\n`;
                     output += currentrow;
                 }
                 output += "</table>";
