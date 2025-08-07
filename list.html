@@ -20,7 +20,7 @@
                 .then(data => {
                     console.log(data.length);
                     //console.log(JSON.stringify(data));
-                    const q = data;
+                     q = data;
                     if (q) {
                         localStorage.setItem('q', JSON.stringify(data));
                         console.log(q);
@@ -39,7 +39,7 @@
                 const n = Number(q.length);
                 let output = "<table border='2'>\n";
                 for (let i = 0; i <= n - 1; i++) {
-                    let currentrow = `<tr><td>${q[i].subject}<td><button onclick="getQuizzesForSubject('${q[i].url}')")>${q[i].subject} Quizzes</button></td></tr>\n`;
+                    let currentrow = `<tr><td>${q[i].subject}<td><button onclick="getQuizzesForSubject('${q[i].url}')">${q[i].subject} Quizzes</button></td></tr>\n`;
                     output += currentrow;
                 }
                 output += "</table>";
@@ -64,10 +64,7 @@ alert(quizzesurl);
     <center>
     <div id="dquiz"></div>
     </center>
-    <script>
-      
-        const dquiz = document.getElementById("dquiz");
-    </script>
+   
 </body>
 
 </html>

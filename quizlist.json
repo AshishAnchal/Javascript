@@ -1,16 +1,16 @@
 [
     {
         "subject":"science",
-        "url": "science.json"
+        "url": "https://ashishanchal.github.io/Javascript/sciencesub.json"
         
     },
     {
         "subject":"Mathematics",
-        "url":"kkkkk.json"
+        "url":"https://ashishanchal.github.io/Javascript/mathsub.json"
     },
     {
         "subject":"Computer",
-        "url":"tttt.json"
+        "url":"https://ashishanchal.github.io/Javascript/compsub.json"
     }
 
 ]
