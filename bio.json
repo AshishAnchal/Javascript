@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "What is the basic unit of life?",
+        "a": "Atom",
+        "b": "Cell",
+        "c": "Tissue",
+        "d": "Organ",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "2",
+        "question": "Which organ in the human body purifies blood?",
+        "a": "Liver",
+        "b": "Heart",
+        "c": "Kidney",
+        "d": "Lungs",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "3",
+        "question": "What is the green pigment in plants that helps in photosynthesis?",
+        "a": "Chlorophyll",
+        "b": "Carotene",
+        "c": "Xanthophyll",
+        "d": "Anthocyanin",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "4",
+        "question": "Which blood cells help fight infection?",
+        "a": "Red Blood Cells",
+        "b": "White Blood Cells",
+        "c": "Platelets",
+        "d": "Plasma",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "5",
+        "question": "Which gas do humans exhale during respiration?",
+        "a": "Oxygen",
+        "b": "Nitrogen",
+        "c": "Carbon Dioxide",
+        "d": "Helium",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "6",
+        "question": "Which is the largest organ in the human body?",
+        "a": "Heart",
+        "b": "Brain",
+        "c": "Skin",
+        "d": "Liver",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "7",
+        "question": "What type of blood is known as the universal donor?",
+        "a": "A+",
+        "b": "O+",
+        "c": "O-",
+        "d": "AB+",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "8",
+        "question": "Which part of the plant conducts water?",
+        "a": "Phloem",
+        "b": "Xylem",
+        "c": "Roots",
+        "d": "Stem",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "9",
+        "question": "Which vitamin is produced when the skin is exposed to sunlight?",
+        "a": "Vitamin A",
+        "b": "Vitamin C",
+        "c": "Vitamin D",
+        "d": "Vitamin K",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "10",
+        "question": "What is the scientific study of animals called?",
+        "a": "Botany",
+        "b": "Zoology",
+        "c": "Ecology",
+        "d": "Microbiology",
+        "correct_ans": "b"
+    }
+]

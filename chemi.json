@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "What is the chemical symbol for water?",
+        "a": "H2O",
+        "b": "O2",
+        "c": "CO2",
+        "d": "HO2",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "2",
+        "question": "Which gas is known as the 'King of Chemicals'?",
+        "a": "Oxygen",
+        "b": "Nitrogen",
+        "c": "Sulphuric Acid",
+        "d": "Hydrogen",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "3",
+        "question": "Which element has the atomic number 6?",
+        "a": "Carbon",
+        "b": "Oxygen",
+        "c": "Nitrogen",
+        "d": "Helium",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "4",
+        "question": "What is the pH of pure water?",
+        "a": "0",
+        "b": "7",
+        "c": "14",
+        "d": "1",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "5",
+        "question": "Which metal is liquid at room temperature?",
+        "a": "Mercury",
+        "b": "Iron",
+        "c": "Aluminium",
+        "d": "Copper",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "6",
+        "question": "What is the chemical formula of table salt?",
+        "a": "KCl",
+        "b": "NaCl",
+        "c": "CaCl2",
+        "d": "MgCl2",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "7",
+        "question": "Which gas is used in the preparation of soda water?",
+        "a": "Oxygen",
+        "b": "Carbon Dioxide",
+        "c": "Hydrogen",
+        "d": "Nitrogen",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "8",
+        "question": "Who is known as the father of modern chemistry?",
+        "a": "Albert Einstein",
+        "b": "Antoine Lavoisier",
+        "c": "Dmitri Mendeleev",
+        "d": "John Dalton",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "9",
+        "question": "Which type of bond is formed by sharing of electrons?",
+        "a": "Ionic Bond",
+        "b": "Hydrogen Bond",
+        "c": "Covalent Bond",
+        "d": "Metallic Bond",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "10",
+        "question": "Which acid is found in lemons?",
+        "a": "Acetic Acid",
+        "b": "Citric Acid",
+        "c": "Sulphuric Acid",
+        "d": "Hydrochloric Acid",
+        "correct_ans": "b"
+    }
+]

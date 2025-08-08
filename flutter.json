@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "Who developed the Flutter framework?",
+        "a": "Facebook",
+        "b": "Google",
+        "c": "Microsoft",
+        "d": "Apple",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "2",
+        "question": "Which programming language is primarily used to develop Flutter apps?",
+        "a": "Java",
+        "b": "Kotlin",
+        "c": "Dart",
+        "d": "Swift",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "3",
+        "question": "What type of framework is Flutter?",
+        "a": "Cross-platform UI framework",
+        "b": "Game engine",
+        "c": "Database framework",
+        "d": "Backend framework",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "4",
+        "question": "Which widget is used to create an immutable layout in Flutter?",
+        "a": "StatelessWidget",
+        "b": "StatefulWidget",
+        "c": "ContainerWidget",
+        "d": "LayoutWidget",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "5",
+        "question": "Which command is used to create a new Flutter project?",
+        "a": "flutter run",
+        "b": "flutter create",
+        "c": "flutter init",
+        "d": "flutter new",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "6",
+        "question": "Which widget is used to display a scrollable list of items in Flutter?",
+        "a": "Column",
+        "b": "ListView",
+        "c": "Row",
+        "d": "ScrollView",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "7",
+        "question": "What does 'hot reload' do in Flutter?",
+        "a": "Restarts the app",
+        "b": "Applies code changes instantly without losing the app state",
+        "c": "Clears cache and reloads",
+        "d": "Runs a performance test",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "8",
+        "question": "Which file is the entry point for a Flutter application?",
+        "a": "index.dart",
+        "b": "main.dart",
+        "c": "app.dart",
+        "d": "start.dart",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "9",
+        "question": "What is the parent class of all widgets in Flutter?",
+        "a": "Object",
+        "b": "Element",
+        "c": "Widget",
+        "d": "Component",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "10",
+        "question": "Which layout widget arranges its children vertically?",
+        "a": "Row",
+        "b": "Column",
+        "c": "Stack",
+        "d": "ListView",
+        "correct_ans": "b"
+    }
+]

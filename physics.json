@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "What is the unit of force?",
+        "a": "Newton",
+        "b": "Joule",
+        "c": "Watt",
+        "d": "Pascal",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "2",
+        "question": "Which law explains the relationship between force, mass, and acceleration?",
+        "a": "Newton's First Law",
+        "b": "Newton's Second Law",
+        "c": "Newton's Third Law",
+        "d": "Law of Gravitation",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "3",
+        "question": "What is the speed of light in vacuum?",
+        "a": "3 × 10^6 m/s",
+        "b": "3 × 10^5 m/s",
+        "c": "3 × 10^8 m/s",
+        "d": "3 × 10^7 m/s",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "4",
+        "question": "Who proposed the law of gravitation?",
+        "a": "Albert Einstein",
+        "b": "Isaac Newton",
+        "c": "Galileo Galilei",
+        "d": "James Watt",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "5",
+        "question": "Which device is used to measure electric current?",
+        "a": "Voltmeter",
+        "b": "Ammeter",
+        "c": "Ohmmeter",
+        "d": "Barometer",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "6",
+        "question": "What is the SI unit of energy?",
+        "a": "Watt",
+        "b": "Joule",
+        "c": "Newton",
+        "d": "Pascal",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "7",
+        "question": "Which phenomenon explains why the sky appears blue?",
+        "a": "Reflection",
+        "b": "Diffraction",
+        "c": "Scattering",
+        "d": "Refraction",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "8",
+        "question": "What is the acceleration due to gravity on Earth?",
+        "a": "8.8 m/s²",
+        "b": "9.8 m/s²",
+        "c": "10.8 m/s²",
+        "d": "7.8 m/s²",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "9",
+        "question": "Which of these is a scalar quantity?",
+        "a": "Velocity",
+        "b": "Displacement",
+        "c": "Force",
+        "d": "Speed",
+        "correct_ans": "d"
+    },
+    {
+        "question_no": "10",
+        "question": "What is the formula for kinetic energy?",
+        "a": "1/2 mv²",
+        "b": "mv",
+        "c": "mgh",
+        "d": "F × d",
+        "correct_ans": "a"
+    }
+]

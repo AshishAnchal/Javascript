@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "Who developed the Python programming language?",
+        "a": "Dennis Ritchie",
+        "b": "Bjarne Stroustrup",
+        "c": "Guido van Rossum",
+        "d": "James Gosling",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "2",
+        "question": "Which keyword is used to define a function in Python?",
+        "a": "func",
+        "b": "function",
+        "c": "def",
+        "d": "lambda",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "3",
+        "question": "What is the correct file extension for Python files?",
+        "a": ".pyth",
+        "b": ".pt",
+        "c": ".py",
+        "d": ".pyt",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "4",
+        "question": "Which of the following is used to output data in Python?",
+        "a": "echo()",
+        "b": "print()",
+        "c": "console.log()",
+        "d": "write()",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "5",
+        "question": "What is the correct way to create a comment in Python?",
+        "a": "// comment",
+        "b": "/* comment */",
+        "c": "# comment",
+        "d": "<!-- comment -->",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "6",
+        "question": "What will be the output of: type(3.5)?",
+        "a": "<class 'int'>",
+        "b": "<class 'float'>",
+        "c": "<class 'double'>",
+        "d": "<class 'decimal'>",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "7",
+        "question": "Which collection type is ordered, changeable, and allows duplicate members?",
+        "a": "List",
+        "b": "Set",
+        "c": "Tuple",
+        "d": "Dictionary",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "8",
+        "question": "Which keyword is used for loops in Python?",
+        "a": "repeat",
+        "b": "while",
+        "c": "loop",
+        "d": "iterate",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "9",
+        "question": "How do you start writing a class in Python?",
+        "a": "class MyClass:",
+        "b": "MyClass class:",
+        "c": "class: MyClass",
+        "d": "create MyClass:",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "10",
+        "question": "Which of the following is the correct way to import a module in Python?",
+        "a": "import_module math",
+        "b": "import.math",
+        "c": "import math",
+        "d": "include math",
+        "correct_ans": "c"
+    }
+]

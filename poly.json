@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "What is the degree of the polynomial 5x³ + 2x² + 7?",
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "4",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "2",
+        "question": "Which of the following is a polynomial?",
+        "a": "2x² + 3x + 4",
+        "b": "x³ + 1/x",
+        "c": "√x + 5",
+        "d": "sin(x)",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "3",
+        "question": "What is the degree of the constant polynomial 9?",
+        "a": "0",
+        "b": "1",
+        "c": "Undefined",
+        "d": "9",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "4",
+        "question": "What is the leading coefficient of 7x⁴ - 3x³ + 2x?",
+        "a": "7",
+        "b": "4",
+        "c": "-3",
+        "d": "2",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "5",
+        "question": "The polynomial x² - 5x + 6 can be factored as:",
+        "a": "(x - 2)(x - 3)",
+        "b": "(x + 2)(x + 3)",
+        "c": "(x - 1)(x - 6)",
+        "d": "(x + 1)(x + 6)",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "6",
+        "question": "If (x - 2) is a factor of x² - 4, the other factor is:",
+        "a": "(x + 2)",
+        "b": "(x - 4)",
+        "c": "(x + 4)",
+        "d": "(x - 2)",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "7",
+        "question": "A polynomial of degree 1 is called:",
+        "a": "Linear",
+        "b": "Quadratic",
+        "c": "Cubic",
+        "d": "Constant",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "8",
+        "question": "The sum of the roots of x² + 3x + 2 = 0 is:",
+        "a": "-3",
+        "b": "3",
+        "c": "-2",
+        "d": "2",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "9",
+        "question": "The product of the roots of 2x² - 5x + 3 = 0 is:",
+        "a": "2/3",
+        "b": "3/2",
+        "c": "5/3",
+        "d": "3",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "10",
+        "question": "Which polynomial has roots 2 and -4?",
+        "a": "x² + 2x - 8",
+        "b": "x² + 4x - 8",
+        "c": "x² + 2x + 8",
+        "d": "x² - 2x + 8",
+        "correct_ans": "a"
+    }
+]

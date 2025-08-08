@@ -1,0 +1,92 @@
+[
+    {
+        "question_no": "1",
+        "question": "Which company developed JavaScript?",
+        "a": "Microsoft",
+        "b": "Netscape",
+        "c": "Sun Microsystems",
+        "d": "IBM",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "2",
+        "question": "Which symbol is used for single-line comments in JavaScript?",
+        "a": "//",
+        "b": "/* */",
+        "c": "#",
+        "d": "<!-- -->",
+        "correct_ans": "a"
+    },
+    {
+        "question_no": "3",
+        "question": "What is the output of console.log(typeof null)?",
+        "a": "null",
+        "b": "object",
+        "c": "undefined",
+        "d": "boolean",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "4",
+        "question": "Which keyword is used to declare a constant in JavaScript?",
+        "a": "let",
+        "b": "var",
+        "c": "const",
+        "d": "static",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "5",
+        "question": "What does the '===' operator check in JavaScript?",
+        "a": "Value only",
+        "b": "Type only",
+        "c": "Value and Type",
+        "d": "Reference only",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "6",
+        "question": "Which method converts a JSON string into a JavaScript object?",
+        "a": "JSON.stringify()",
+        "b": "JSON.parse()",
+        "c": "JSON.convert()",
+        "d": "JSON.toObject()",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "7",
+        "question": "Which function is used to print content to the console in JavaScript?",
+        "a": "log()",
+        "b": "print()",
+        "c": "console.log()",
+        "d": "write()",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "8",
+        "question": "Which event occurs when a user clicks on an HTML element?",
+        "a": "onmouseover",
+        "b": "onchange",
+        "c": "onclick",
+        "d": "onfocus",
+        "correct_ans": "c"
+    },
+    {
+        "question_no": "9",
+        "question": "What is the correct way to define an array in JavaScript?",
+        "a": "var colors = 'red', 'green', 'blue'",
+        "b": "var colors = ['red', 'green', 'blue']",
+        "c": "var colors = (1:'red', 2:'green', 3:'blue')",
+        "d": "var colors = {'red', 'green', 'blue'}",
+        "correct_ans": "b"
+    },
+    {
+        "question_no": "10",
+        "question": "Which property returns the length of a string?",
+        "a": "length()",
+        "b": "len",
+        "c": "size()",
+        "d": "length",
+        "correct_ans": "d"
+    }
+]
