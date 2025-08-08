@@ -1,14 +1,14 @@
 [
     {
         "sub":"Javascript",
-        "url":"js.json"
+        "url":"https://ashishanchal.github.io/Javascript/js.json"
     },
     {
         "sub":"Python",
-        "url":"py.json"
+        "url":"https://ashishanchal.github.io/Javascript/py.json"
     },
     {
         "sub":"Flutter",
-        "url":"f.json"
+        "url":"https://ashishanchal.github.io/Javascript/flutter.json"
     }
 ]

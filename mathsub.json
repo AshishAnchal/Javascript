@@ -1,14 +1,14 @@
 [
     {
         "sub":"Algebra",
-        "url":"all.json"
+        "url":"https://ashishanchal.github.io/Javascript/algebra.json"
     },
     {
         "sub":"Polynomial",
-        "url":"pp.json"
+        "url":"https://ashishanchal.github.io/Javascript/poly.json"
     },
     {
         "sub":"Stats",
-        "url":"a.json"
+        "url":"https://ashishanchal.github.io/Javascript/stats.json"
     }
 ]

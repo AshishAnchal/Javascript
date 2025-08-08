@@ -1,14 +1,14 @@
 [
     {
         "sub": "Physics",
-        "url": "https://ashishanchal.github.io/Javascript/index.html"
+        "url": "https://ashishanchal.github.io/Javascript/physics.json"
     },
     {
         "sub": "Chemistry",
-        "url": "ccc.json"
+        "url": "https://ashishanchal.github.io/Javascript/chemi.json"
     },
     {
         "sub": "Biology",
-        "url": "bbb.json"
+        "url": "https://ashishanchal.github.io/Javascript/bio.json"
     }
 ]

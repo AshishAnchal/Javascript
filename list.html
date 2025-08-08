@@ -63,11 +63,7 @@
             list.forEach(item => {
                 output += `<tr>
                     <td>${item.sub}</td>
-                    <td>
-                        <a href="https://ashishanchal.github.io/Javascript/index.html?quiz=${encodeURIComponent(item.url)}" target="_blank">
-                            <button>Start</button>
-                        </a>
-                    </td>
+                    <td><button onclick="alert('Start quiz: ${item.url}')">Start</button></td>
                 </tr>\n`;
             });
             output += "</table>";
