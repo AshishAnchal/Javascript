@@ -1,94 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List</title>
-    <script>
-        let q = [];
-        let p = [];
+<meta charset="UTF-8">
+<title>List</title>
+<script>
+let q = []; // main subject list
+let p = []; // subject quizzes list
+let questions = []; // actual quiz questions
+let quesno = 0, score = 0;
 
-        function fetchlist() {
-            const url = 'https://ashishanchal.github.io/Javascript/quizlist.json';
-            return fetch(url)
-                .then(res => {
-                    if (!res.ok) throw new Error(`${res.status} - ${res.statusText}`);
-                    return res.json();
-                })
-                .then(data => {
-                    q = data;
-                    localStorage.setItem('q', JSON.stringify(q));
-                    return q;
-                })
-                .catch(error => {
-                    console.error("Error fetching main list:", error);
-                });
-        }
+function fetchlist() {
+    return fetch('https://ashishanchal.github.io/Javascript/quizlist.json')
+        .then(res => res.json())
+        .then(data => {
+            q = data;
+            localStorage.setItem('q', JSON.stringify(q));
+            return q;
+        })
+        .catch(err => console.error("Error fetching main list:", err));
+}
 
-        function startlist() {
-            fetchlist().then(() => {
-                const stored = localStorage.getItem("q");
-                if (stored) {
-                    q = JSON.parse(stored);
-                    let output = "<table border='2'>\n";
-                    q.forEach(item => {
-                        output += `<tr>
-                            <td>${item.subject}</td>
-                            <td><button onclick="getQuizzesForSubject('${item.url}')">
-                                ${item.subject} Quizzes
-                            </button></td>
-                        </tr>\n`;
-                    });
-                    output += "</table>";
-                    document.getElementById("dquiz").innerHTML = output;
-                }
-            });
-        }
+function startlist() {
+    fetchlist().then(() => {
+        const stored = JSON.parse(localStorage.getItem("q") || "[]");
+        let output = "<table border='2'>";
+        stored.forEach(item => {
+            output += `<tr>
+                <td>${item.subject}</td>
+                <td><button onclick="getQuizzesForSubject('${item.url}')">View Quizzes</button></td>
+            </tr>`;
+        });
+        output += "</table>";
+        document.getElementById("dquiz").innerHTML = output;
+    });
+}
 
-        function getQuizzesForSubject(quizzesurl) {
-            fetch(quizzesurl)
-                .then(res => {
-                    if (!res.ok) throw new Error(`${res.status} - ${res.statusText}`);
-                    return res.json();
-                })
-                .then(data => {
-                    p = data;
-                    localStorage.setItem('p', JSON.stringify(p));
-                    renderSubjectQuizzes();
-                })
-                .catch(error => {
-                    console.error("Error fetching subject quizzes:", error);
-                });
-        }
+function getQuizzesForSubject(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            p = data;
+            localStorage.setItem('p', JSON.stringify(p));
+            showSubjectQuizzes();
+        })
+        .catch(err => console.error("Error fetching subject quizzes:", err));
+}
 
-        function renderSubjectQuizzes() {
-            const showlist = localStorage.getItem("p");
-            if (showlist) {
-                p = JSON.parse(showlist);
-                let output = "<table border='2'>\n";
-                p.forEach(item => {
-                    output += `<tr>
-                        <td>${item.sub}</td>
-                        <td><button onclick="getQuizzesForSubject('${item.url}')">
-                            ${item.sub} Quizzes
-                        </button></td>
-                    </tr>\n`;
-                });
-                output += "</table>";
-                document.getElementById("divquiz").innerHTML = output;
-            }
-        }
-    </script>
+function showSubjectQuizzes() {
+    const stored = JSON.parse(localStorage.getItem("p") || "[]");
+    let output = "<table border='2'>";
+    stored.forEach(item => {
+        output += `<tr>
+            <td>${item.sub}</td>
+            <td><button onclick="getQuestions('${item.url}')">Start Quiz</button></td>
+        </tr>`;
+    });
+    output += "</table>";
+    document.getElementById("divquiz").innerHTML = output;
+}
+
+function getQuestions(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            questions = data;
+            localStorage.setItem('questions', JSON.stringify(questions));
+            startQuiz();
+        })
+        .catch(err => console.error("Error fetching questions:", err));
+}
+
+function startQuiz() {
+    quesno = 0;
+    score = 0;
+    document.body.innerHTML = `
+        <h2 id="lblquesno"></h2>
+        <p id="lblquestion"></p>
+        <label><input type="radio" name="opt" id="rda"> <span id="lbla"></span></label><br>
+        <label><input type="radio" name="opt" id="rdb"> <span id="lblb"></span></label><br>
+        <label><input type="radio" name="opt" id="rdc"> <span id="lblc"></span></label><br>
+        <label><input type="radio" name="opt" id="rdd"> <span id="lbld"></span></label><br>
+        <button onclick="nextQuestion()">Next</button>
+        <p id="pscore">Score: 0</p>
+    `;
+    showQuestion();
+}
+
+function showQuestion() {
+    const q = questions[quesno];
+    document.getElementById("lblquesno").textContent = `Q${quesno + 1}:`;
+    document.getElementById("lblquestion").textContent = q.question;
+    document.getElementById("lbla").textContent = `A) ${q.a}`;
+    document.getElementById("lblb").textContent = `B) ${q.b}`;
+    document.getElementById("lblc").textContent = `C) ${q.c}`;
+    document.getElementById("lbld").textContent = `D) ${q.d}`;
+}
+
+function getSelectedOption() {
+    if (document.getElementById("rda").checked) return "a";
+    if (document.getElementById("rdb").checked) return "b";
+    if (document.getElementById("rdc").checked) return "c";
+    if (document.getElementById("rdd").checked) return "d";
+    return "e";
+}
+
+function nextQuestion() {
+    const selected = getSelectedOption();
+    if (selected === "e") {
+        alert("Please select an option.");
+        return;
+    }
+    if (selected === questions[quesno].correct_ans) {
+        score++;
+        document.getElementById("pscore").textContent = `Score: ${score}`;
+    }
+    quesno++;
+    if (quesno >= questions.length) {
+        alert(`Quiz Completed! Score: ${score}/${questions.length}`);
+        return;
+    }
+    showQuestion();
+}
+</script>
 </head>
-
 <body>
-    <h1>List</h1>
-    <div>
-        <button onclick="startlist()">Get Main List</button>
-    </div>
-    <center>
-        <div id="dquiz"></div><br>
-        <div id="divquiz"></div>
-    </center>
+<h1>List</h1>
+<div>
+    <button onclick="startlist()">Get Main List</button>
+</div>
+<center>
+    <div id="dquiz"></div><br>
+    <div id="divquiz"></div>
+</center>
 </body>
 </html>
