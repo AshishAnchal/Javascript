@@ -14,6 +14,7 @@
         }
     </style>
     <script>
+        let username="";
         let q = [];
         let p = [];
         let questions = [];
@@ -81,7 +82,7 @@
         }
 
         function startQuiz() {
-            totalques = questions.length;
+            username = document.getElementById("nameuser").value;
             quesno = 0;
             score = 0;
             document.body.innerHTML = `
@@ -122,6 +123,7 @@
         }
 
         function nextQuestion() {
+            let totalques = questions.length;
             const selected = getSelectedOption();
             const correctanswer = questions[quesno].correct_ans;
             //alert(selected + "," + correctanswer);
@@ -138,7 +140,7 @@
             if (quesno >= questions.length) {
                 quizdiv.classList.add("hidequizdiv");
                 pscore.classList.remove("pscore");
-                pscore.textContent = `Score: ${score}/${totalques}`;
+                pscore.textContent = ` ${username} your score ${score}/${totalques}`;
                 //alert(`Quiz Completed! Score: ${score}/${questions.length}`);
                 return;
             }
@@ -149,7 +151,7 @@
 
 <body>
     <h1>QUIZ</h1>
-    <label aria-placeholder="Enter you name here"><input id="nameuser" type="text>"</label><br>
+    <label aria-placeholder="Enter you name here"><input id="nameuser" type="text"></label><br>
 </br>
     <div>
         <button onclick="startlist()">Start</button>
