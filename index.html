@@ -2,261 +2,350 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QUIZ</title>
+  <meta charset="UTF-8">
+  <title>Quiz App</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle, #0a1a3d 0%, #000 100%);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
       margin: 0;
       padding: 20px;
-      color: #f1c40f;
-      text-align: center;
+      color: #333;
     }
 
     h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
       font-size: 36px;
-      margin-top: 20px;
-      color: #f1c40f;
-      text-shadow: 2px 2px 5px #000;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      border: 2px solid #66a6ff;
+      border-radius: 12px;
+      width: 280px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4e9dff;
+      box-shadow: 0 0 10px rgba(78, 157, 255, 0.7);
     }
 
     button {
-      background-color: #1abc9c;
-      color: white;
-      padding: 12px 25px;
-      margin: 20px auto;
+      padding: 12px 24px;
       border: none;
-      border-radius: 25px;
-      font-size: 18px;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      color: white;
+      font-size: 16px;
       cursor: pointer;
-      display: inline-block;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease;
+      margin-top: 15px;
     }
 
     button:hover {
-      background-color: #16a085;
-      transform: scale(1.05);
+      background: linear-gradient(45deg, #00f2fe, #4facfe);
+      transform: scale(1.08);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     }
 
     #quizdiv {
-      background: rgba(255, 255, 255, 0.05);
+      background: white;
       padding: 30px;
       border-radius: 20px;
-      max-width: 700px;
-      margin: 30px auto;
-      box-shadow: 0 0 25px rgba(241, 196, 15, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+      animation: fadeIn 0.6s ease-in-out;
     }
 
-    #quesno {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #f39c12;
+    #quizdiv h2 {
+      margin-bottom: 15px;
+      color: #4facfe;
     }
 
-    #lblquestion {
+    #quizdiv p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    #quizdiv label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 10px;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    #quizdiv input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    #quizdiv label:hover {
+      background: #f4faff;
+    }
+
+    #pscore {
+      text-align: center;
       font-size: 24px;
       font-weight: bold;
-      margin: 20px 0;
-      color: #ffffff;
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 15px;
+      background: white;
+      display: inline-block;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      color: #222;
     }
 
-    label {
-      display: block;
-      margin: 12px auto;
-      padding: 12px 20px;
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
       width: 90%;
-      max-width: 500px;
-      border: 2px solid #f1c40f;
-      border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      text-align: left;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.6s ease-in-out;
     }
 
-    label:hover {
-      background-color: rgba(241, 196, 15, 0.2);
-      transform: scale(1.02);
+    th,
+    td {
+      padding: 12px;
+      text-align: center;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
     }
 
-    input[type="radio"] {
-      transform: scale(1.4);
-      margin-right: 12px;
-      vertical-align: middle;
+    th {
+      background: #4facfe;
+      color: white;
     }
 
-    .hidequizdiv {
-      display: none;
+    tr:hover {
+      background: #f1f9ff;
     }
 
-    .qget {
-      display: none;
-    }
-
-    .pscore {
-      font-size: 22px;
+    .correct {
+      color: green;
       font-weight: bold;
-      color: #2ecc71;
-      margin-top: 30px;
-      display: none;
     }
 
-    .option-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
+    .wrong {
+      color: red;
+      font-weight: bold;
     }
 
-    .option-row label {
-      flex: 1 1 45%;
-      max-width: 280px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
-
-</head>
-
-<body>
-  <h1>Physics Quiz</h1>
-  <button id="qstart" style="display: none;" onclick="startQuiz()">Start</button>
-  <button id="qget" onclick="fetchques()">Start</button>
-  <div id="quizdiv" class="hidequizdiv">
-    <p id="quesno"></p>
-    <p id="lblquestion"></p>
-
-    <div class="option-row">
-      <label><input id="rda" name="option" type="radio"> <span id="lbla"></span></label>
-      <label><input id="rdb" name="option" type="radio"> <span id="lblb"></span></label>
-    </div>
-    <div class="option-row">
-      <label><input id="rdc" name="option" type="radio"> <span id="lblc"></span></label>
-      <label><input id="rdd" name="option" type="radio"> <span id="lbld"></span></label>
-    </div>
-
-    <input type="radio" style="display: none" id="rde" name="option">
-    <button onclick="nextQuestion()">Submit</button>
-    
-  </div>
-<p id="pscore" class="pscore">Score</p>
   <script>
-    let questions = 0;
-    function fetchques() {
-      const url = "https://ashishanchal.github.io/Javascript/physics.json";
-      console.log(url);
-      fetch(url)
-        .then(Response => {
-          if (!Response.ok) {
-            throw new Error(`${Response.status}-${Response.statusText}`);
-            alert("Error");
-          }
-          return Response.json();
-        })
+    let username = "";
+    let q = [];
+    let p = [];
+    let questions = [];
+    let quesno = 0, score = 0;
+    let userAnswers = [];
+
+    function fetchlist() {
+      return fetch('https://ashishanchal.github.io/Javascript/quizlist.json')
+        .then(res => res.json())
         .then(data => {
-          console.log(data.length);
-          const quesdata = data;
-          if (quesdata) {
-            localStorage.setItem('questions', JSON.stringify(data));
-            console.log(quesdata);
-          } else {
-            displayerror("Question not found");
-          }
+          q = data;
+          localStorage.setItem('q', JSON.stringify(q));
+          return q;
         })
-        .catch(error => {
-          displayerror(error.message);
-        })
-      function displayerror(data) {
-        console.log(data);
-      }
-      startQuiz();
+        .catch(err => console.error("Error fetching main list:", err));
     }
 
-    let quesno = 0;
-    let score = 0;
+    function startlist() {
+      username = document.getElementById("nameuser").value.trim();
+      if (username === "") {
+        alert("⚠️ Please enter your name before starting!");
+        return;
+      }
 
-    let totalques = 0;
-    const lblquesno = document.getElementById("quesno");
-    const quizdiv = document.getElementById("quizdiv");
-    const qstart = document.getElementById("qstart");
-    const qget = document.getElementById("qget");
-    const lblquestion = document.getElementById("lblquestion");
-    const lbla = document.getElementById("lbla");
-    const lblb = document.getElementById("lblb");
-    const lblc = document.getElementById("lblc");
-    const lbld = document.getElementById("lbld");
-    const rda = document.getElementById("rda");
-    const rdb = document.getElementById("rdb");
-    const rdc = document.getElementById("rdc");
-    const rdd = document.getElementById("rdd");
-    const rde = document.getElementById("rde");
-    const pscore = document.getElementById("pscore");
+      fetchlist().then(() => {
+        const stored = JSON.parse(localStorage.getItem("q") || "[]");
+        let output = "<table><tr><th>Subject</th><th>Action</th></tr>";
+        stored.forEach(item => {
+          output += `<tr>
+                        <td>${item.subject}</td>
+                        <td><button onclick="getQuizzesForSubject('${item.url}')">View Quizzes</button></td>
+                    </tr>`;
+        });
+        output += "</table>";
+        document.getElementById("dquiz").innerHTML = output;
+      });
+    }
+
+    function getQuizzesForSubject(url) {
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          p = data;
+          localStorage.setItem('p', JSON.stringify(p));
+          showSubjectQuizzes();
+        })
+        .catch(err => console.error("Error fetching subject quizzes:", err));
+    }
+
+    function showSubjectQuizzes() {
+      const stored = JSON.parse(localStorage.getItem("p") || "[]");
+      let output = "<table><tr><th>Quiz</th><th>Action</th></tr>";
+      stored.forEach(item => {
+        output += `<tr>
+                    <td>${item.sub}</td>
+                    <td><button onclick="getQuestions('${item.url}')">Start Quiz</button></td>
+                </tr>`;
+      });
+      output += "</table>";
+      document.getElementById("divquiz").innerHTML = output;
+    }
+
+    function getQuestions(url) {
+      if (username.trim() === "") {
+        alert("⚠️ Please enter your name before starting the quiz!");
+        return;
+      }
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          questions = data;
+          localStorage.setItem('questions', JSON.stringify(questions));
+          startQuiz();
+        })
+        .catch(err => console.error("Error fetching questions:", err));
+    }
 
     function startQuiz() {
-      qstart.style.display = "none";
-      quizdiv.classList.remove("hidequizdiv");
-      qget.classList.add("qget");
-      questions = JSON.parse(localStorage.getItem("questions"));
-      totalques = questions.length;
-      showQuestion();
-    }
+      quesno = 0;
+      score = 0;
+      userAnswers = [];
 
-    function nextQuestion() {
-      const selected = getSelectedOption();
-      // alert(selected);
-      if (selected === "e") {
-        alert("Please select an option.");
-        return;
-
-      }
-
-      const current = questions[quesno];
-      console.log(current);
-      if (selected === current.correct_ans) {
-        // alert("Correct!");
-        score++;
-        // alert(score);
-        pscore.textContent = `Score: ${score}`;
-      } else {
-        // alert("Wrong!");
-      }
-
-      quesno++;
-
-      if (quesno == totalques) {
-        alert("Quiz Completed");
-        quizdiv.classList.add("hidequizdiv");
-        pscore.classList.remove("pscore"); 
-        pscore.textContent = `Score: ${score}/${totalques}`;
-        return;
-      }
+      document.body.innerHTML = `
+        <div id="quizdiv">
+          <h2 id="lblquesno"></h2>
+          <p id="lblquestion"></p>
+          <label><input type="radio" name="opt" id="rda"> <span id="lbla"></span></label>
+          <label><input type="radio" name="opt" id="rdb"> <span id="lblb"></span></label>
+          <label><input type="radio" name="opt" id="rdc"> <span id="lblc"></span></label>
+          <label><input type="radio" name="opt" id="rdd"> <span id="lbld"></span></label>
+          <input type="radio" name="opt" style="display:none" id="rde">
+          <button onclick="nextQuestion()">Next</button>
+        </div>
+        <div style="text-align:center;">
+          <p id="pscore">Score: 0</p>
+        </div>
+      `;
       showQuestion();
     }
 
     function showQuestion() {
-      rde.checked = true;
       const q = questions[quesno];
-      lblquesno.textContent = `Q${quesno + 1}:`;
-      lblquestion.textContent = q.question;
-      lbla.textContent = `A) ${q.a}`;
-      lblb.textContent = `B) ${q.b}`;
-      lblc.textContent = `C) ${q.c}`;
-      lbld.textContent = `D) ${q.d}`;
-      ;
+      document.getElementById("rde").checked = true;
+      document.getElementById("lblquesno").textContent = `Q${quesno + 1}:`;
+      document.getElementById("lblquestion").textContent = q.question;
+      document.getElementById("lbla").textContent = `A) ${q.a}`;
+      document.getElementById("lblb").textContent = `B) ${q.b}`;
+      document.getElementById("lblc").textContent = `C) ${q.c}`;
+      document.getElementById("lbld").textContent = `D) ${q.d}`;
     }
 
     function getSelectedOption() {
-      if (rda.checked) return "a";
-      if (rdb.checked) return "b";
-      if (rdc.checked) return "c";
-      if (rdd.checked) return "d";
+      if (document.getElementById("rda").checked) return "a";
+      if (document.getElementById("rdb").checked) return "b";
+      if (document.getElementById("rdc").checked) return "c";
+      if (document.getElementById("rdd").checked) return "d";
       return "e";
     }
+
+    function nextQuestion() {
+      let totalques = questions.length;
+      const selected = getSelectedOption();
+      const correctanswer = questions[quesno].correct_ans;
+
+      if (selected === "e") {
+        alert("⚠️ Please select an option.");
+        return;
+      }
+
+      userAnswers.push({ question: questions[quesno].question, selected, correct: correctanswer, options: questions[quesno] });
+
+      if (selected === correctanswer) {
+        score++;
+        document.getElementById("pscore").textContent = `Score: ${score}`;
+      }
+      quesno++;
+      if (quesno >= totalques) {
+        showResults();
+        return;
+      }
+      showQuestion();
+    }
+
+    function showResults() {
+      document.body.innerHTML = `
+        <h1>Quiz Completed 🎉</h1>
+        <div style="text-align:center;">
+          <p id="pscore">${username}, your final score is ${score}/${questions.length}</p>
+        </div>
+        <table>
+          <tr>
+            <th>Question</th>
+            <th>Your Answer</th>
+            <th>Correct Answer</th>
+          </tr>
+          ${userAnswers.map((ans, index) => {
+        let userAnsText = ans.options[ans.selected] || "Not Answered";
+        let correctAnsText = ans.options[ans.correct];
+        let cssClass = ans.selected === ans.correct ? "correct" : "wrong";
+        return `<tr>
+                  <td>${index + 1}. ${ans.question}</td>
+                  <td class="${cssClass}">${userAnsText}</td>
+                  <td class="correct">${correctAnsText}</td>
+                </tr>`;
+      }).join("")}
+        </table>
+        <div style="text-align:center;">
+          <button onclick="location.reload()">Restart Quiz</button>
+        </div>
+      `;
+    }
   </script>
+</head>
+
+<body>
+  <h1>QUIZ</h1>
+  <div style="text-align:center;">
+    <label for="nameuser" style="color:white;font-size:18px;">Enter your name:</label><br>
+    <input id="nameuser" type="text" placeholder="Enter your name here"><br><br>
+    <button onclick="startlist()">Start</button>
+  </div>
+
+  <center>
+    <div id="dquiz"></div><br>
+    <div id="divquiz"></div>
+  </center>
 </body>
 
 </html>

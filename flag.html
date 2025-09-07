@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indian Flag Animated</title>
+  <style>
+    :root {
+      --saffron: #ff9933;
+      --white:   #ffffff;
+      --green:   #138808;
+      --navy:    #000080;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(#87ceeb, #e0f7fa);
+      overflow: hidden;
+    }
+    .flag {
+      width: 450px;
+      height: 300px;
+      position: relative;
+      animation: wave 2s ease-in-out infinite;
+      transform-origin: left center;
+    }
+    .band {
+      height: 33.3333%;
+      width: 100%;
+    }
+    .saffron { background: var(--saffron); }
+    .white   { background: var(--white); position: relative; }
+    .green   { background: var(--green); }
+    .chakra {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      width: 80px;
+      height: 80px;
+      animation: spin 6s linear infinite;
+    }
+    @keyframes wave {
+      0% { transform: rotateY(0deg) translateY(0px); }
+      25% { transform: rotateY(5deg) translateY(-3px); }
+      50% { transform: rotateY(0deg) translateY(0px); }
+      75% { transform: rotateY(-5deg) translateY(3px); }
+      100% { transform: rotateY(0deg) translateY(0px); }
+    }
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .pole {
+      position: absolute;
+      left: -20px;
+      top: -20px;
+      bottom: -20px;
+      width: 12px;
+      background: #8b5e3c;
+      border-radius: 6px;
+      animation: sway 2s ease-in-out infinite;
+    }
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(1deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="flag">
+    <div class="pole"></div>
+    <div class="band saffron"></div>
+    <div class="band white">
+      <svg class="chakra" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="98" fill="none" stroke="var(--navy)" stroke-width="8" />
+        <circle cx="150" cy="150" r="10" fill="var(--navy)" />
+        <g id="spokes" stroke="var(--navy)" stroke-width="4"></g>
+      </svg>
+    </div>
+    <div class="band green"></div>
+  </div>
+  <script>
+    const g = document.getElementById('spokes');
+    const cx = 150, cy = 150, outerR = 98;
+    for (let i = 0; i < 24; i++) {
+      const angle = (i * 360 / 24) * Math.PI / 180;
+      const x2 = cx + outerR * Math.cos(angle);
+      const y2 = cy + outerR * Math.sin(angle);
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', cx);
+      line.setAttribute('y1', cy);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', y2);
+      g.appendChild(line);
+    }
+  </script>
+</body>
+</html>

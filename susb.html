@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QUIZ</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle, #0a1a3d 0%, #000 100%);
+      margin: 0;
+      padding: 20px;
+      color: #f1c40f;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 20px;
+      color: #f1c40f;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    button {
+      background-color: #1abc9c;
+      color: white;
+      padding: 12px 25px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #16a085;
+      transform: scale(1.05);
+    }
+
+    #quizdiv {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      margin: 30px auto;
+      box-shadow: 0 0 25px rgba(241, 196, 15, 0.3);
+    }
+
+    #quesno {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #f39c12;
+    }
+
+    #lblquestion {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin: 12px auto;
+      padding: 12px 20px;
+      width: 90%;
+      max-width: 500px;
+      border: 2px solid #f1c40f;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-align: left;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    label:hover {
+      background-color: rgba(241, 196, 15, 0.2);
+      transform: scale(1.02);
+    }
+
+    input[type="radio"] {
+      transform: scale(1.4);
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    .hidequizdiv {
+      display: none;
+    }
+
+    .qget {
+      display: none;
+    }
+
+    .pscore {
+      font-size: 22px;
+      font-weight: bold;
+      color: #2ecc71;
+      margin-top: 30px;
+      display: none;
+    }
+
+    .option-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .option-row label {
+      flex: 1 1 45%;
+      max-width: 280px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>Physics Quiz</h1>
+  <button id="qstart" style="display: none;" onclick="startQuiz()">Start</button>
+  <button id="qget" onclick="fetchques()">Start</button>
+  <div id="quizdiv" class="hidequizdiv">
+    <p id="quesno"></p>
+    <p id="lblquestion"></p>
+
+    <div class="option-row">
+      <label><input id="rda" name="option" type="radio"> <span id="lbla"></span></label>
+      <label><input id="rdb" name="option" type="radio"> <span id="lblb"></span></label>
+    </div>
+    <div class="option-row">
+      <label><input id="rdc" name="option" type="radio"> <span id="lblc"></span></label>
+      <label><input id="rdd" name="option" type="radio"> <span id="lbld"></span></label>
+    </div>
+
+    <input type="radio" style="display: none" id="rde" name="option">
+    <button onclick="nextQuestion()">Submit</button>
+    
+  </div>
+<p id="pscore" class="pscore">Score</p>
+  <script>
+    let questions = 0;
+    function fetchques() {
+      const url = "https://ashishanchal.github.io/Javascript/physics.json";
+      console.log(url);
+      fetch(url)
+        .then(Response => {
+          if (!Response.ok) {
+            throw new Error(`${Response.status}-${Response.statusText}`);
+            alert("Error");
+          }
+          return Response.json();
+        })
+        .then(data => {
+          console.log(data.length);
+          const quesdata = data;
+          if (quesdata) {
+            localStorage.setItem('questions', JSON.stringify(data));
+            console.log(quesdata);
+          } else {
+            displayerror("Question not found");
+          }
+        })
+        .catch(error => {
+          displayerror(error.message);
+        })
+      function displayerror(data) {
+        console.log(data);
+      }
+      startQuiz();
+    }
+
+    let quesno = 0;
+    let score = 0;
+
+    let totalques = 0;
+    const lblquesno = document.getElementById("quesno");
+    const quizdiv = document.getElementById("quizdiv");
+    const qstart = document.getElementById("qstart");
+    const qget = document.getElementById("qget");
+    const lblquestion = document.getElementById("lblquestion");
+    const lbla = document.getElementById("lbla");
+    const lblb = document.getElementById("lblb");
+    const lblc = document.getElementById("lblc");
+    const lbld = document.getElementById("lbld");
+    const rda = document.getElementById("rda");
+    const rdb = document.getElementById("rdb");
+    const rdc = document.getElementById("rdc");
+    const rdd = document.getElementById("rdd");
+    const rde = document.getElementById("rde");
+    const pscore = document.getElementById("pscore");
+
+    function startQuiz() {
+      qstart.style.display = "none";
+      quizdiv.classList.remove("hidequizdiv");
+      qget.classList.add("qget");
+      questions = JSON.parse(localStorage.getItem("questions"));
+      totalques = questions.length;
+      showQuestion();
+    }
+
+    function nextQuestion() {
+      const selected = getSelectedOption();
+      // alert(selected);
+      if (selected === "e") {
+        alert("Please select an option.");
+        return;
+
+      }
+
+      const current = questions[quesno];
+      console.log(current);
+      if (selected === current.correct_ans) {
+        // alert("Correct!");
+        score++;
+        // alert(score);
+        pscore.textContent = `Score: ${score}`;
+      } else {
+        // alert("Wrong!");
+      }
+
+      quesno++;
+
+      if (quesno == totalques) {
+        alert("Quiz Completed");
+        quizdiv.classList.add("hidequizdiv");
+        pscore.classList.remove("pscore"); 
+        pscore.textContent = `Score: ${score}/${totalques}`;
+        return;
+      }
+      showQuestion();
+    }
+
+    function showQuestion() {
+      rde.checked = true;
+      const q = questions[quesno];
+      lblquesno.textContent = `Q${quesno + 1}:`;
+      lblquestion.textContent = q.question;
+      lbla.textContent = `A) ${q.a}`;
+      lblb.textContent = `B) ${q.b}`;
+      lblc.textContent = `C) ${q.c}`;
+      lbld.textContent = `D) ${q.d}`;
+      ;
+    }
+
+    function getSelectedOption() {
+      if (rda.checked) return "a";
+      if (rdb.checked) return "b";
+      if (rdc.checked) return "c";
+      if (rdd.checked) return "d";
+      return "e";
+    }
+  </script>
+</body>
+
+</html>
